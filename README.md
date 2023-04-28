@@ -1,5 +1,4 @@
-# Course Project - Web Chat Server (Instructions)
-> Course: CSCI 2020U: Software Systems Development and Integration.
+Project - Web Chat Server (Instructions)
 
 ## Project Information
 This project is a web chat server. The main purpose is to let multiple users join rooms and message each other. The way it works is that when the user gets on they'll have the option to create room. Once created, they will be given a unique room ID and in the chat console will be prompted to enter their username. After this, they wil be able to send messages to other users. Their messages will be displayed along with a timestamp and their username. When new users join or if a user leaves, the system will announce this to the others.
