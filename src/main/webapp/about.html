@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script>
+    $(document).ready(function () {
+
+      // Check for click events on the navbar burger icon
+      $(".navbar-burger").click(function () {
+
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        $(".navbar-burger").toggleClass("is-active");
+        $(".navbar-menu").toggleClass("is-active");
+
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item underline-animation" href="index.html">
+        <i class="fa-solid fa-message"></i>
+        &nbsp;
+        ChatterBox
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="sudoku-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="chat-menu" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="index.html">Back to Chatrooms</a>
+      </div>
+    </div>
+  </nav><br>
+  <h1 class="pl-2">Our team</h1>
+  <p class="pl-2">This website was brought to you by:</p>
+  <br>
+  <ul id="teamList" class="pl-3">
+    <li>
+      <a href="https://github.com/ChammakA">
+        <i class="fa-brands fa-github"></i>
+        Sammak Ahmed
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/SuperNovaa41">
+        <i class="fa-brands fa-github"></i>
+        Nathan Singer
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/shayanrashid">
+        <i class="fa-brands fa-github"></i>
+        Shayan Rashid
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/jaredBatallones">
+        <i class="fa-brands fa-github"></i>
+        Jared Batallones
+      </a>
+    </li>
+  </ul>
+  <script src="https://kit.fontawesome.com/64c5ec2337.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Chat Server</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <!--<link rel="manifest" href="site.webmanifest">-->
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    $(document).ready(function () {
+
+      // Check for click events on the navbar burger icon
+      $(".navbar-burger").click(function () {
+
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        $(".navbar-burger").toggleClass("is-active");
+        $(".navbar-menu").toggleClass("is-active");
+
+      });
+    });
+  </script>
+  <script src="js/main.js" defer></script>
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+
+<body>
+  <!-- Add your site or application content here -->
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item underline-animation">
+        <i class="fa-solid fa-message"></i>
+        &nbsp;
+        ChatterBox
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="sudoku-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="chat-menu" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="about.html">About</a>
+      </div>
+      <div class="navbar-end">
+      </div>
+    </div>
+  </nav>
+
+  <div id="content" class="columns has-background-light">
+    <div id="chatInfo" class="column is-one-quarter left has-background-coral snowfall">
+      <div class="listContainer">
+        <h3>Active chats:</h3>
+        <ul id="roomList">
+        </ul>
+        <button class="list-btn" onclick="newRoom()">Create and join new room</button><br>
+      </div>
+      <div class="listContainer">
+        <h3 id="total-users">Total Users: </h3>
+        <h3 id="usersInRoom">Participants: </h3>
+        <ul id="userList">
+
+        </ul>
+      </div>
+    </div>
+
+    <div id="chatContainer" class="column has-background-coral snowfall">
+      <h2 id="roomName">
+        You are chatting in room: <span id="roomCode"></span>
+      </h2><br>
+      <canvas id="myCanvas" height="50px" width="80px"></canvas>
+      <div id="tabs">
+        <button class="tab-btn" onclick="clearChat()">
+          <i class="fa-solid fa-trash"></i>
+          Clear Chat
+        </button><br>
+      </div>
+      <div id="chatArea" class="has-background-white">
+        <div title="Chat Log" id="log"
+          style="display: block; height: 500px; width: 100%; resize: none; margin: 0; border: 0;"></div>
+        <div id="inputArea">
+          <input title="Chat Input" id="input" placeholder="Type here..." type="text"
+            style="display: block; width: 100%; border-width: 1px 0 1px 0;" autofocus />
+          <button id="send-btn" onclick="msgEnter()">
+            Send
+            <i class="fa-solid fa-rocket"></i>
+          </button>
+        </div>
+      </div>
+      <div id="sprites">
+        <div id="fighter" class="sprite animate__animated animate__bounce"></div>
+        <div id="spamton" class="sprite animate__animated animate__bounce"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

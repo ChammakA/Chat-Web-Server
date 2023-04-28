@@ -1,0 +1,80 @@
+package com.example.webchatserver;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * This class represents the data you may need to store about a Chat room
+ * You may add more method or attributes as needed
+ * **/
+public class ChatRoom {
+    private String code;
+    private ArrayList<String> chatHistory;
+
+    //each user has an unique ID associate to their ws session and their username
+    private Map<String, String> users = new HashMap<String, String>();
+
+    // when created the chat room has at least one user
+    public ChatRoom(String code, String user){
+        this.code = code;
+        // when created the user has not entered their username yet
+        this.users.put(user, "");
+        chatHistory = new ArrayList<String>();
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void addToChatHistory(String message) { this.chatHistory.add(message); }
+
+    public String getChatHistory() {
+        if (this.chatHistory.isEmpty())
+            return "";
+
+        String ret = "{\"type\": \"history\", \"messages\": [";
+        for (String msg : this.chatHistory)
+            ret += "\"" + msg + "\", ";
+        ret = ret.substring(0, ret.length() - 2);
+        ret += "]}";
+        return ret;
+    }
+
+    public Map<String, String> getUsers() {
+        return users;
+    }
+
+    /**
+     * This method will add the new userID to the room if not exists, or it will add a new userID,name pair
+     * **/
+    public void setUserName(String userID, String name) {
+        // update the name
+        if(users.containsKey(userID)){
+            users.remove(userID);
+            users.put(userID, name);
+        }else{ // add new user
+            users.put(userID, name);
+        }
+    }
+
+    /**
+     * This method will remove a user from this room
+     * **/
+    public void removeUser(String userID){
+        if(users.containsKey(userID)){
+            users.remove(userID);
+        }
+
+    }
+
+    public boolean inRoom(String userID){
+        return users.containsKey(userID);
+    }
+}
